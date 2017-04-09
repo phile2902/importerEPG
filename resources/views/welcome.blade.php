@@ -4,8 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>ImporterEPG</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -69,7 +70,17 @@
             <div class="content">
                 <div class="title m-b-md">
                     Welcome to importer EPG Application
-                </div>               
+                </div>
+                <div class="">
+                    <form enctype="multipart/form-data" role="form" method="POST" action="{{ route('tvcontent') }}">                    
+                        {{ csrf_field() }} 
+                        <div class="form-group">
+                            <label for="exampleInputFile">Import a xml file</label><br>
+                            <input type="file" name="inputFile" id="inputFile">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </body>

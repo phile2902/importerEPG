@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/tv', 
+    [
+        'as' => 'tvcontent', 
+        'uses' => 'TVController@executeFile'
+    ]);
