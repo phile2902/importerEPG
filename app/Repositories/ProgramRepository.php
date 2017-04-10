@@ -7,16 +7,19 @@ use Faker\Generator;
 class ProgramRepository extends Repository 
 {   
     protected $faker;
-    
+    protected $object;
+
+
     public function __construct(\Faker\Generator $faker)
     {
         $this->faker = $faker;
     } 
 
 
-    public function create($object)
+    public function create($json)
     {
-        foreach($object->network as $network)
+        $this->object = json_decode($json);
+        foreach($this->object->network as $network)
         {
             foreach($network->service as $service)
             {
@@ -29,7 +32,7 @@ class ProgramRepository extends Repository
                             $program = new Program;
                             $program->ext_program_id = $this->faker->randomNumber(2);
                             $program->show_type = 'movie';
-                            $program->long_title = $shortEvent->attributes()->name;
+                            $program->long_title = $shortEvent->name;
                             $program->save();
                         }
                     }

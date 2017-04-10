@@ -7,15 +7,17 @@ use Faker\Generator;
 class ChannelRepository extends Repository 
 {   
     protected $faker;
+    protected $object;
     
     public function __construct(\Faker\Generator $faker)
     {
         $this->faker = $faker;
     }
 
-    public function create($object)
+    public function create($json)
     {
-        foreach($object->network as $network)
+        $this->object = json_decode($json);
+        foreach($this->object->network as $network)
         {
             foreach($network->service as $service)
             {
@@ -24,7 +26,7 @@ class ChannelRepository extends Repository
                 $channel->short_name = $this->faker->unique()->word;
                 $channel->full_name = $this->faker->name;
                 $channel->time_zone = $this->faker->timezone;
-                $channel->source_id = $service->attributes()->id;
+                $channel->source_id = $service->id;
                 $channel->save();
             }
         }
