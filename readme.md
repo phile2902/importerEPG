@@ -13,12 +13,6 @@ Data files of providers are uploaded via welcome page and handled in TVControlle
 
 Then, formatted to json data will be imported to database through models and repostitories. If there are any sql errors or other errors and the process could not be done, they will be catched and showed in notification view. Conversely, the success message will be showed in the notification view. 
 
-## Images
-
-<p align="center"><img src="http://imgur.com/DXragrL"></p>
-<p align="center"><img src="http://imgur.com/9C5gtiy"></p>
-<p align="center"><img src="http://imgur.com/mi2PghJ"></p>
-
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
