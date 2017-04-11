@@ -14,10 +14,11 @@ class Xml
     
     static function formatXmlToJson($string)
     {
+        /*The principal is scanning one by one nodes of xml file then move 
+         attributes outside like keys.*/
         $xml = simplexml_load_string($string);
         $array = array();
         $array['network'] = array();
-        //var_dump($xml);
         foreach ($xml->network as $network) {
             $temp_network = array();
             $temp_network['service'] = array();

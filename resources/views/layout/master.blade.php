@@ -14,7 +14,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
         <style>
-            .content{
+            .content, .notification{
                 margin-top: 30px;
             }
         </style>

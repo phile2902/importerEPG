@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('content')
+<div class="notification">
     @if ($success)
         <div class="alert alert-success" role="alert">
             {{$message}}
@@ -10,5 +11,6 @@
             {{$message}}
         </div>    
     @endif
+</div>  
 @endsection
 
