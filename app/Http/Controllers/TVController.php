@@ -42,9 +42,16 @@ class TVController extends Controller
             $this->channelRepository->create($json);
             $this->programRepository->create($json);
             $this->scheduleRepository->create($json);
-            echo "good";
+            
+            return view('home', [
+                'success' => true,
+                'message' => 'Good job'
+            ]);
         } catch (\Exception $ex) {
-            echo $ex->getMessage();
+            return view('home', [
+                'success' => false,
+                'message' => $ex->getMessage()
+            ]);
         }
 
     }
